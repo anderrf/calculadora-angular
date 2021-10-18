@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculatorComponent implements OnInit {
 
-  constructor() { }
+  displayContent: string;
+
+  constructor() {
+    this.displayContent = "";
+   }
 
   ngOnInit(): void {
+  }
+
+  insert(digit: string): void{
+    this.displayContent += digit;
+  }
+
+  clear(): void{
+    this.displayContent = "";
   }
 
 }

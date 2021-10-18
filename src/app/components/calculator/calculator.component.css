@@ -22,6 +22,11 @@
     width: 90%;
     height: 3rem;
     font-size: 2rem;
+    border: inset 2px #333333;
+    color: #111111;
+    font-family: Tahoma;
+    padding-right: 6px;
+    text-align: right;
 }
 
 #keyBoard{
@@ -36,10 +41,23 @@
     height: 3rem;
     font-size: 1.5rem;
     margin: auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #keyBoard #btn0{
     grid-column-start: 1;
     grid-column-end: 3;
     width: 80%;
+}
+
+.operator{
+    background: radial-gradient(#00CED1, #AFEEEE);
+    color: #FFFFFF;
+}
+
+.number{
+    background: radial-gradient(#F4F4F4, #CDCDCD);
+    color: #000000;
 }
