@@ -11,12 +11,22 @@
 body{
     width: 100vw;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 #container{
     width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(to right, #ffb347, #ffcc33);
+}
+
+@media(max-width: 520px){
+    :root{
+        font-size: 10px;
+    }
 }

@@ -1,10 +1,15 @@
 #calculator{
-    width: 50vw;
+    width: 20rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     height: 90vh;
+    background: linear-gradient(#2E8B57, #5F9EA0);
+    border-radius: 8px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.5), 0 12px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    max-width: 520px;
 }
 
 #display, #keyBoard{
@@ -27,6 +32,7 @@
     font-family: Tahoma;
     padding-right: 6px;
     text-align: right;
+    background-color: #F4F4F4;
 }
 
 #keyBoard{
@@ -44,6 +50,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5), 0 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .operator{
@@ -51,7 +58,15 @@
     color: #FFFFFF;
 }
 
+.operator:hover{
+    background: radial-gradient(#00BDE0, #9EDDDD);
+}
+
 .number{
     background: radial-gradient(#F4F4F4, #CDCDCD);
     color: #000000;
+}
+
+.number:hover{
+    background: radial-gradient(#E3E3E3, #BCBCBC);
 }
