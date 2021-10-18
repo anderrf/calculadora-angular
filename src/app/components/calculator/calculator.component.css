@@ -46,12 +46,6 @@
     cursor: pointer;
 }
 
-#keyBoard #btn0{
-    grid-column-start: 1;
-    grid-column-end: 3;
-    width: 80%;
-}
-
 .operator{
     background: radial-gradient(#00CED1, #AFEEEE);
     color: #FFFFFF;

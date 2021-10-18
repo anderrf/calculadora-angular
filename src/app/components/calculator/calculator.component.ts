@@ -24,4 +24,12 @@ export class CalculatorComponent implements OnInit {
     this.displayContent = "";
   }
 
+  backspace(): void{
+    this.displayContent = this.displayContent.slice(0, (this.displayContent.length - 1));
+  }
+
+  equals(): void{
+    this.displayContent = eval(this.displayContent);
+  }
+
 }

@@ -4,8 +4,8 @@
     </div>
     <div id="keyBoard">
         <button class="operator" (click)="clear()">C</button>
-        <button class="operator"><-</button>
-        <button class="operator">+/-</button>
+        <button class="operator" (click)="insert('(')">(</button>
+        <button class="operator" (click)="insert(')')">)</button>
         <button class="operator" (click)="insert('/')">/</button>
         <button class="number" (click)="insert('7')">7</button>
         <button class="number" (click)="insert('8')">8</button>
@@ -21,6 +21,7 @@
         <button class="operator" (click)="insert('+')">+</button>
         <button id="btn0" class="number" (click)="insert('0')">0</button>
         <button class="operator" (click)="insert('.')">.</button>
-        <button class="operator">=</button>
+        <button class="operator" (click)="backspace()"><-</button>
+        <button class="operator" (click)="equals()">=</button>
     </div>
 </div>
