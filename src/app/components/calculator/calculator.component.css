@@ -27,12 +27,27 @@
     width: 90%;
     height: 3rem;
     font-size: 2rem;
-    border: inset 2px #333333;
+    border: none;
     color: #111111;
     font-family: Tahoma;
     padding-right: 6px;
     text-align: right;
     background-color: #F4F4F4;
+    border-radius: 0;
+}
+
+#display button{
+    height: 3.1rem;
+    outline: none;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background: radial-gradient(#C21500, #FFC500);
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+#display button:hover{
+    background: radial-gradient(#B10400, #EEB400);
 }
 
 #keyBoard{
@@ -51,6 +66,11 @@
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5), 0 3px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .operator{
