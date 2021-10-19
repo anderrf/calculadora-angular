@@ -29,15 +29,19 @@ export class CalculatorComponent implements OnInit {
   }
 
   backspace(): void{
-    this.displayContent = this.displayContent + '';
+    this.displayContent += '';
     this.displayContent = this.displayContent.slice(0, (this.displayContent.length - 1));
   }
 
   equals(): void{
     let operation = this.displayContent;
     this.displayContent = eval(this.displayContent);
+    this.displayContent += '';
+    if(this.displayContent.includes('.')){
+      let result = this.displayContent.split('.');
+      this.displayContent = result[0] + '.' + result[1].substring(0, 8);
+    }
     this.history.push(operation + " = " + this.displayContent);
-    console.log(this.history);
   }
 
   openHistory(): void{
