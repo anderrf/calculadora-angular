@@ -8,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class CalculatorComponent implements OnInit {
 
   displayContent: string;
+  history: string[];
 
   constructor() {
     this.displayContent = "";
+    this.history = [];
    }
 
   ngOnInit(): void {
@@ -25,11 +27,15 @@ export class CalculatorComponent implements OnInit {
   }
 
   backspace(): void{
+    this.displayContent = this.displayContent + '';
     this.displayContent = this.displayContent.slice(0, (this.displayContent.length - 1));
   }
 
   equals(): void{
+    let operation = this.displayContent;
     this.displayContent = eval(this.displayContent);
+    this.history.push(operation + " = " + this.displayContent);
+    console.log(this.history);
   }
 
 }

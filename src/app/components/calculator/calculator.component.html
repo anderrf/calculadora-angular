@@ -1,6 +1,9 @@
 <div id="calculator">
     <div id="display">
         <input type="text" name="numDisplay" id="numDisplay" disabled value="{{this.displayContent}}">
+        <button>
+            <mat-icon aria-hidden="false" aria-label="history icon">watch_later</mat-icon>
+        </button>
     </div>
     <div id="keyBoard">
         <button class="operator" (click)="clear()">C</button>
@@ -10,7 +13,7 @@
         <button class="number" (click)="insert('7')">7</button>
         <button class="number" (click)="insert('8')">8</button>
         <button class="number" (click)="insert('9')">9</button>
-        <button class="operator" (click)="insert('*')">x</button>
+        <button class="operator" (click)="insert('*')">*</button>
         <button class="number" (click)="insert('4')">4</button>
         <button class="number"  (click)="insert('5')">5</button>
         <button class="number" (click)="insert('6')">6</button>
@@ -21,7 +24,9 @@
         <button class="operator" (click)="insert('+')">+</button>
         <button id="btn0" class="number" (click)="insert('0')">0</button>
         <button class="operator" (click)="insert('.')">.</button>
-        <button class="operator" (click)="backspace()"><-</button>
+        <button class="operator" (click)="backspace()">
+            <mat-icon aria-hidden="false">backspace</mat-icon>
+        </button>
         <button class="operator" (click)="equals()">=</button>
     </div>
 </div>
