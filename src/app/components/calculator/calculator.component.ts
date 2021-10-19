@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
 
 @Component({
   selector: 'app-calculator',
@@ -10,7 +12,7 @@ export class CalculatorComponent implements OnInit {
   displayContent: string;
   history: string[];
 
-  constructor() {
+  constructor(private bottomSheet: MatBottomSheet) {
     this.displayContent = "";
     this.history = [];
    }
@@ -36,6 +38,10 @@ export class CalculatorComponent implements OnInit {
     this.displayContent = eval(this.displayContent);
     this.history.push(operation + " = " + this.displayContent);
     console.log(this.history);
+  }
+
+  openHistory(): void{
+    this.bottomSheet.open(BottomSheetComponent, {data: this.history});
   }
 
 }

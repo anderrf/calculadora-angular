@@ -1,7 +1,7 @@
 <div id="calculator">
     <div id="display">
         <input type="text" name="numDisplay" id="numDisplay" disabled value="{{this.displayContent}}">
-        <button>
+        <button (click)="openHistory()">
             <mat-icon aria-hidden="false" aria-label="history icon">watch_later</mat-icon>
         </button>
     </div>
