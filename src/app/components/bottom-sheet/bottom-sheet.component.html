@@ -1,4 +1,10 @@
 <mat-nav-list>
-    <p *ngFor="let result of results">{{result}}</p>
+    <h3>Histórico</h3>
+    <div *ngFor="let result of results; let i = index">
+        <p>{{result}}</p>
+        <button (click)="eraseHistory(i)">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
     <p *ngIf="results.length === 0">Sem resultados...</p>
 </mat-nav-list>
