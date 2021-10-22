@@ -1,8 +1,26 @@
+h3{
+    text-align: center;
+    font-size: 2rem;
+}
+
 p{
     font-size: 1.5rem;
 }
 
-p + p{
+div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div + div{
     border-top: solid 1px #BBBBBB;
     padding-top: 1rem;
+}
+
+button{
+    outline: none;
+    border: none;
+    background: none;
 }

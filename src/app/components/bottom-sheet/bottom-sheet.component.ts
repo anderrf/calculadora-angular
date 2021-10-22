@@ -17,4 +17,9 @@ export class BottomSheetComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  eraseHistory(i: number): void{
+    this.results.splice(i, 1);
+    localStorage.setItem('calculatorHistory', JSON.stringify(this.results));
+  }
+
 }
