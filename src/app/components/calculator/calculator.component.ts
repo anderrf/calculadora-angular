@@ -13,11 +13,24 @@ export class CalculatorComponent implements OnInit {
   history: string[];
 
   constructor(private bottomSheet: MatBottomSheet) {
-    this.displayContent = "";
-    this.history = [];
    }
 
   ngOnInit(): void {
+    this.displayContent = "";
+    this.getHistory();
+  }
+
+  getHistory(): void{
+    let savedHistory: string | null = localStorage.getItem('calculatorHistory');
+    if(savedHistory === null){
+      this.history = [];
+      savedHistory = JSON.stringify(this.history);
+      localStorage.setItem('calculatorHistory', savedHistory);
+    }
+    else{
+      let operations = JSON.parse(savedHistory) as string[];
+      this.history = operations;
+    }
   }
 
   insert(digit: string): void{
@@ -41,11 +54,17 @@ export class CalculatorComponent implements OnInit {
       let result = this.displayContent.split('.');
       this.displayContent = result[0] + '.' + result[1].substring(0, 8);
     }
-    this.history.push(operation + " = " + this.displayContent);
+    let newHistory = (operation + " = " + this.displayContent);
+    this.saveHistory(newHistory);
   }
 
   openHistory(): void{
     this.bottomSheet.open(BottomSheetComponent, {data: this.history});
+  }
+
+  saveHistory(newHistory: string): void{
+    this.history.push(newHistory);
+    localStorage.setItem('calculatorHistory', JSON.stringify(this.history));
   }
 
 }
