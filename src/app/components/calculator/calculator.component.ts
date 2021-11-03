@@ -1,5 +1,7 @@
+import { StorageService } from './../../services/storage-service.service';
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { Equation } from 'src/app/models/equation';
 import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
 
 @Component({
@@ -9,11 +11,13 @@ import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
 })
 export class CalculatorComponent implements OnInit {
 
-  displayContent: string;
-  history: string[];
+  displayContent!: string;
+  history!: Equation[];
 
-  constructor(private bottomSheet: MatBottomSheet) {
-   }
+  constructor(
+    private bottomSheet: MatBottomSheet,
+    private storageService: StorageService
+  ) { }
 
   ngOnInit(): void {
     this.displayContent = "";
@@ -21,16 +25,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   getHistory(): void{
-    let savedHistory: string | null = localStorage.getItem('calculatorHistory');
-    if(savedHistory === null){
-      this.history = [];
-      savedHistory = JSON.stringify(this.history);
-      localStorage.setItem('calculatorHistory', savedHistory);
-    }
-    else{
-      let operations = JSON.parse(savedHistory) as string[];
-      this.history = operations;
-    }
+    this.history = this.storageService.getHistory();
   }
 
   insert(digit: string): void{
@@ -48,13 +43,14 @@ export class CalculatorComponent implements OnInit {
 
   equals(): void{
     let operation = this.displayContent;
-    this.displayContent = eval(this.displayContent);
-    this.displayContent += '';
-    if(this.displayContent.includes('.')){
-      let result = this.displayContent.split('.');
-      this.displayContent = result[0] + '.' + result[1].substring(0, 8);
+    let result = eval(this.displayContent).toString();
+    if(result.includes('.')){
+      let resultAux = result.split('.');
+      result = resultAux[0] + '.' + resultAux[1].substring(0, 8);
     }
-    let newHistory = (operation + " = " + this.displayContent);
+    this.displayContent = result;
+    this.displayContent += '';
+    const newHistory: Equation = {operation: operation, result: result};
     this.saveHistory(newHistory);
   }
 
@@ -62,9 +58,9 @@ export class CalculatorComponent implements OnInit {
     this.bottomSheet.open(BottomSheetComponent, {data: this.history});
   }
 
-  saveHistory(newHistory: string): void{
+  saveHistory(newHistory: Equation): void{
     this.history.push(newHistory);
-    localStorage.setItem('calculatorHistory', JSON.stringify(this.history));
+    this.storageService.setHistory(this.history);
   }
 
 }
