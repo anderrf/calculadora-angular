@@ -7,16 +7,33 @@ p{
     font-size: 1.5rem;
 }
 
-div{
+.history{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-div + div{
+.history + .history{
     border-top: solid 1px #BBBBBB;
     padding-top: 1rem;
+}
+
+.calculation-elements{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.operation{
+  align-self: start;
+  text-align: left;
+  color: #777777;
+}
+
+.result{
+  align-self: end;
+  text-align: right;
 }
 
 button{

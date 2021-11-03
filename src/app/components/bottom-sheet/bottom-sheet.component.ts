@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
+import { Equation } from 'src/app/models/equation';
 
 @Component({
   selector: 'app-bottom-sheet',
@@ -8,18 +9,18 @@ import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bott
 })
 export class BottomSheetComponent implements OnInit {
 
-  results: string[];
+  calculations: Equation[];
 
   constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetComponent>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {
-    this.results = data;
+    this.calculations = data;
    }
 
   ngOnInit(): void {
   }
 
   eraseHistory(i: number): void{
-    this.results.splice(i, 1);
-    localStorage.setItem('calculatorHistory', JSON.stringify(this.results));
+    this.calculations.splice(i, 1);
+    localStorage.setItem('calculatorHistory', JSON.stringify(this.calculations));
   }
 
 }
