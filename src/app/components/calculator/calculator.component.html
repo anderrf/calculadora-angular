@@ -1,32 +1,32 @@
 <div id="calculator">
     <div id="display">
-        <input type="text" name="numDisplay" id="numDisplay" disabled value="{{this.displayContent}}">
-        <button (click)="openHistory()">
-            <mat-icon aria-hidden="false" aria-label="history icon">watch_later</mat-icon>
+        <input type="text" name="numDisplay" id="numDisplay" aria-disabled="true" aria-readonly="true" aria-hidden="false" readonly [value]="displayContent" [attr.aria-label]="'Tela: ' + displayContent">
+        <button (click)="openHistory()" aria-label="Histórico">
+            <mat-icon aria-hidden="false">watch_later</mat-icon>
         </button>
     </div>
     <div id="keyBoard">
-        <button class="operator" (click)="clear()">C</button>
-        <button class="operator" (click)="insert('(')">(</button>
-        <button class="operator" (click)="insert(')')">)</button>
-        <button class="operator" (click)="insert('/')">/</button>
-        <button class="number" (click)="insert('7')">7</button>
-        <button class="number" (click)="insert('8')">8</button>
-        <button class="number" (click)="insert('9')">9</button>
-        <button class="operator" (click)="insert('*')">*</button>
-        <button class="number" (click)="insert('4')">4</button>
-        <button class="number"  (click)="insert('5')">5</button>
-        <button class="number" (click)="insert('6')">6</button>
-        <button class="operator"  (click)="insert('-')">-</button>
-        <button class="number" (click)="insert('1')">1</button>
-        <button class="number" (click)="insert('2')">2</button>
-        <button class="number" (click)="insert('3')">3</button>
-        <button class="operator" (click)="insert('+')">+</button>
-        <button id="btn0" class="number" (click)="insert('0')">0</button>
-        <button class="operator" (click)="insert('.')">.</button>
-        <button class="operator" (click)="backspace()">
+        <button class="operator" (click)="clear()" aria-label="limpar">C</button>
+        <button class="operator" (click)="insert('(')" aria-label="(">(</button>
+        <button class="operator" (click)="insert(')')" aria-label=")">)</button>
+        <button class="operator" (click)="insert('/')" aria-label="Dividir">/</button>
+        <button class="number" (click)="insert('7')" aria-label="Sete">7</button>
+        <button class="number" (click)="insert('8')" aria-label="Oito">8</button>
+        <button class="number" (click)="insert('9')" aria-label="Nove">9</button>
+        <button class="operator" (click)="insert('*')" aria-label="Vezes">*</button>
+        <button class="number" (click)="insert('4')" aria-label="Quatro">4</button>
+        <button class="number"  (click)="insert('5')" aria-label="Cinco">5</button>
+        <button class="number" (click)="insert('6')" aria-label="Seis">6</button>
+        <button class="operator"  (click)="insert('-')" aria-label="Menos">-</button>
+        <button class="number" (click)="insert('1')" aria-label="Um">1</button>
+        <button class="number" (click)="insert('2')" aria-label="Dois">2</button>
+        <button class="number" (click)="insert('3')" aria-label="Três">3</button>
+        <button class="operator" (click)="insert('+')" aria-label="Mais">+</button>
+        <button id="btn0" class="number" (click)="insert('0')" aria-label="Zero">0</button>
+        <button class="operator" (click)="insert('.')" aria-label=".">.</button>
+        <button class="operator" (click)="backspace()" aria-label="Apagar">
             <mat-icon aria-hidden="false">backspace</mat-icon>
         </button>
-        <button class="operator" (click)="equals()">=</button>
+        <button class="operator" (click)="equals()" aria-label="Igual">=</button>
     </div>
 </div>

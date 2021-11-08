@@ -10,7 +10,7 @@ import { Equation } from 'src/app/models/equation';
 })
 export class BottomSheetComponent implements OnInit {
 
-  calculations: Equation[];
+  public calculations: Equation[];
 
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<BottomSheetComponent>,
@@ -20,12 +20,16 @@ export class BottomSheetComponent implements OnInit {
     this.calculations = data;
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  eraseHistory(i: number): void{
+  public eraseHistory(i: number): void{
     this.calculations.splice(i, 1);
     this.storageService.setHistory(this.calculations);
+  }
+
+  public exit(): void{
+    this._bottomSheetRef.dismiss(false);
   }
 
 }

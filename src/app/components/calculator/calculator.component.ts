@@ -11,37 +11,37 @@ import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
 })
 export class CalculatorComponent implements OnInit {
 
-  displayContent!: string;
-  history!: Equation[];
+  public displayContent!: string;
+  public history!: Equation[];
 
   constructor(
     private bottomSheet: MatBottomSheet,
     private storageService: StorageService
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.displayContent = "";
     this.getHistory();
   }
 
-  getHistory(): void{
+  public getHistory(): void{
     this.history = this.storageService.getHistory();
   }
 
-  insert(digit: string): void{
+  public insert(digit: string): void{
     this.displayContent += digit;
   }
 
-  clear(): void{
+  public clear(): void{
     this.displayContent = "";
   }
 
-  backspace(): void{
+  public backspace(): void{
     this.displayContent += '';
     this.displayContent = this.displayContent.slice(0, (this.displayContent.length - 1));
   }
 
-  equals(): void{
+  public equals(): void{
     let operation = this.displayContent;
     let result = eval(this.displayContent).toString();
     if(result.includes('.')){
@@ -54,11 +54,11 @@ export class CalculatorComponent implements OnInit {
     this.saveHistory(newHistory);
   }
 
-  openHistory(): void{
+  public openHistory(): void{
     this.bottomSheet.open(BottomSheetComponent, {data: this.history});
   }
 
-  saveHistory(newHistory: Equation): void{
+  public saveHistory(newHistory: Equation): void{
     this.history.push(newHistory);
     this.storageService.setHistory(this.history);
   }
