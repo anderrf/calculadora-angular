@@ -1,13 +1,13 @@
-<mat-nav-list>
-    <h3>Histórico</h3>
+<mat-nav-list aria-modal="true" (keydown.esc)="exit()" aria-label="Histórico" appFocusKeep>
+    <h3 tabindex="1">Histórico</h3>
     <div *ngFor="let calculation of calculations; let i = index" class="history">
       <div class="calculation-elements">
-        <p class="operation">{{calculation.operation}}</p>
-        <p class="result">{{calculation.result}}</p>
+        <p class="operation" [attr.aria-label]="'Cálculo: ' + calculation.operation" tabindex="1">{{calculation.operation}}</p>
+        <p class="result" [attr.aria-label]="'Resultado: ' + calculation.result" tabindex="1">{{calculation.result}}</p>
       </div>
-        <button (click)="eraseHistory(i)">
+        <button (click)="eraseHistory(i)" aria-label="Apagar cálculo" tabindex="1">
             <mat-icon>close</mat-icon>
         </button>
     </div>
-    <p *ngIf="calculations.length === 0">Sem resultados...</p>
+    <p *ngIf="calculations.length === 0" aria-label="Sem resultados" tabindex="1">Sem resultados...</p>
 </mat-nav-list>
